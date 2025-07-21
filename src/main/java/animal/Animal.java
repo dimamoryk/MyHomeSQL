@@ -1,19 +1,29 @@
-package animals;
+package animal;
 
 public abstract class Animal {
+    private long id;
     protected String name;
     protected int age;
     private double weight;
     private String color;
     protected String type;
 
-    public Animal( String name, int age, double weight, String color, String type) {
+    public Animal(long id, String name, int age, double weight, String color, String type) {
+        this.id = id;
         this.type = type;
         this.name = name;
         this.age = age;
         this.weight = weight;
         this.color = color;
     }
+public long getId(){
+        return id;
+}
+public void setId(long id){
+        this.id = id;
+}
+
+
     public String getType() {
         return type;
     }
@@ -71,6 +81,8 @@ public abstract class Animal {
     public void eat() {
         System.out.println("Я ем");
     }
+
+
 
     @Override
     public String toString() {

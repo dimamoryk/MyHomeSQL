@@ -3,14 +3,20 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
+
 ### IntelliJ IDEA ###
-.idea/modules.xml
-.idea/jarRepositories.xml
-.idea/compiler.xml
-.idea/libraries/
-*.iws
-*.iml
-*.ipr
+  # Игнорируем IDE специфичные файлы
+  .idea/
+  *.iml
+
+  # Лог-файлы и временные файлы
+  logs/*
+  tmp/*
+
+  # Файлы сборки и зависимостей
+  target/
+  build/
+
 
 ### Eclipse ###
 .apt_generated
