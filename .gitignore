@@ -1,44 +1,26 @@
+# IDEA files
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Build output directories
 target/
-!.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
+
+# Logs
+logs/
+*.log
 
 
-### IntelliJ IDEA ###
-  # Игнорируем IDE специфичные файлы
-  .idea/
-  *.iml
+# Docker
+Dockerfile*
+docker-compose.yml
 
-  # Лог-файлы и временные файлы
-  logs/*
-  tmp/*
-
-  # Файлы сборки и зависимостей
-  target/
-  build/
-
-
-### Eclipse ###
-.apt_generated
+# IntelliJ idea
+.outline
+.idea
 .classpath
-.factorypath
 .project
-.settings
-.springBeans
-.sts4-cache
+.settings/
 
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-build/
-!**/src/main/**/build/
-!**/src/test/**/build/
 
-### VS Code ###
-.vscode/
-
-### Mac OS ###
-.DS_Store
