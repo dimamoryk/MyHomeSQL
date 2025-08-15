@@ -11,13 +11,14 @@ import java.util.List;
 
 public class DatabaseHelper {
 
-    String url = "jdbc:mysql://sql.home.kartushin.su:3306/MyBD";
-    String user = "admin";
-    String password = "711267";
+    String dbUrl = System.getProperty("db.url");
+    String dbUser = System.getProperty("db.user");
+    String dbPassword = System.getProperty("db.password");
+
 
     // Получаем соединение с базой данных
     public Connection getConnection() throws SQLException {
-        return DriverManager.getConnection(url, user, password);
+        return DriverManager.getConnection(dbUrl, dbUser, dbPassword);
     }
 
     // Метод для добавления животного в базу данных

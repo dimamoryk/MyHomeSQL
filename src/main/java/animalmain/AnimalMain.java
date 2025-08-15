@@ -3,6 +3,7 @@ package animalmain;
 import animal.Animal;
 import data.Command;
 import factory.AnimalFactory;
+import utils.ConfigLoader;
 import utils.DatabaseHelper;
 
 import java.sql.SQLException;
@@ -21,6 +22,23 @@ public class AnimalMain {
 
 
     public static void main(String... args) {
+        try {
+            ConfigLoader config = new ConfigLoader("src/main/resources/application.properties");
+
+            String dbUrl = config.getProperty("db.url");
+            String dbUser = config.getProperty("db.user");
+            String dbPassword = config.getProperty("db.password");
+
+            if (dbUrl == null || dbUser == null || dbPassword == null) {
+                throw new IllegalStateException("One or more database credentials are missing.");
+            }
+
+            System.out.println("Loaded configuration successfully!");
+        } catch (Exception e) {
+            System.err.println("Ошибка загрузки конфигурации: " + e.getMessage());
+        }
+
+
 
         try {
             loadAnimals(databaseHelper); // Загрузка животных из БД
@@ -42,7 +60,7 @@ public class AnimalMain {
                     case "LIST":
                         listAnimals();
                         break;
-                    case "FILTER":
+                    case "EDIT":
                         filterAnimalsByType(databaseHelper); // фильтруем животных по типу
                         break;
                     case "EXIT":
@@ -63,7 +81,7 @@ public class AnimalMain {
         System.out.println("\nМеню:");
         System.out.println("ADD - добавить животное");
         System.out.println("LIST - показать список животных");
-        System.out.println("FILTER - выбрать животные по типу");
+        System.out.println("EDIT - выбрать животные по типу");
         System.out.println("EXIT - завершить программу");
         System.out.print("Введите команду: ");
     }
